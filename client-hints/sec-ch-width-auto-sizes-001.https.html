@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta http-equiv="Delegate-CH" content="Sec-CH-Width">
+<title>Tests Sec-CH-Width with auto sizes</title>
+<link rel="help" href="https://wicg.github.io/responsive-image-client-hints/#sec-ch-width">
+<link rel="help" href="https://html.spec.whatwg.org/#sizes-attributes">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+
+<div style="width: 100px; height: 100px;">
+  <img
+    loading="lazy"
+    sizes="auto"
+    srcset="resources/2x3-svg-scaled-by-sec-ch-width.py 50w"
+    width="300"
+    height="300"
+    style="width: 50%; height: 50%;">
+</div>
+
+<script>
+  promise_test(async (test) => {
+    const testImage = document.getElementsByTagName('img')[0];
+    await new Promise(resolve => testImage.onload = resolve);
+    assert_equals(testImage.naturalWidth, 100);
+    assert_equals(testImage.naturalHeight, 150);
+  }, 'Sec-CH-Width is set for lazy auto sizes');
+</script>
