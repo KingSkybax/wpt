@@ -1,6 +1,24 @@
 {
   "tests": [
     {
+      "name": "reduceL1 float32 0D constant tensor all positive default options", // default options: {axes: null, keepDimensions: false}
+      "inputs": {
+        "input": {
+          "shape": [],
+          "data": [
+            5.508826448139126
+          ],
+          "type": "float32",
+          "constant": true
+        }
+      },
+      "expected": {
+        "name": "output",
+        "data": 5.508826448139126,
+        "type": "float32"
+      }
+    },
+    {
       "name": "reduceL1 float32 1D constant tensor all positive default options", // default options: {axes: null, keepDimensions: false}
       "inputs": {
         "input": {

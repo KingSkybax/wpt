@@ -1,6 +1,24 @@
 {
   "tests": [
     {
+      "name": "reduceLogSumExp float32 0D constant tensor all positive default options", // default options: {axes: null, keepDimensions: false}
+      "inputs": {
+        "input": {
+          "shape": [],
+          "data": [
+            0.7974132976078829
+          ],
+          "type": "float32",
+          "constant": true
+        }
+      },
+      "expected": {
+        "name": "output",
+        "data": 0.7974132976078829,
+        "type": "float32"
+      }
+    },
+    {
       "name": "reduceLogSumExp float32 1D constant tensor all positive default options", // default options: {axes: null, keepDimensions: false}
       "inputs": {
         "input": {
